@@ -18,6 +18,33 @@ Pic smaller has been deployed to [`vercel`](https://vercel.com/), you can use it
 
 > [picsmaller.com](https://picsmaller.com/) is a new domain that has just been applied for. The old domain [txx.cssrefs.com](https://txx.cssrefs.com/) is still accessible, but will be expired on `2025-02-22` and payment will not continue. Please use the latest domain to access the service.
 
+## Install
+
+### docker-compose
+
+```yaml
+version: "3"
+services:
+  pic-smaller:
+    image: joye61/pic-smaller:latest
+    container_name: pic-smaller
+    ports:
+      - 3001:3001
+    network_mode: bridge
+    restart: unless-stopped
+```
+
+### docker cli
+
+```shell
+docker run -d \
+  --name pic-smaller \
+  -p 3001:3001 \
+  --network bridge \
+  --restart unless-stopped \
+  joye61/pic-smaller:latest
+```
+
 ## Develop
 
 Pic smaller is a [Vite](https://vitejs.dev/) + [React](https://react.dev/) project, you have to get familiar with them first. It uses modern browser technologies such as `OffscreenCanvas`, `WebAssembly`, and `Web Worker`. You should also be familiar with them before developing.
